@@ -1,5 +1,5 @@
-#yahoo finance nse data downloader for daily,15 min , 5 mintimeframe
-#There is a time period restriction for 5 min, 15 min data from YF so it's recommended to run this weekly/Fortnightly
+# yahoo finance nse data downloader for daily,15 min , 5 mintimeframe
+# There is a time period restriction for 5 min, 15 min data from YF so it's recommended to run this weekly/Fortnightly
 
 import os
 import yfinance as yf

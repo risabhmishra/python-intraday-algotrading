@@ -16,10 +16,16 @@ class BrahmastraStrategy(bt.Strategy):
         self.sell_signal = None
 
     def next(self):
-        if self.macd.macd[0] > self.macd.signal[0] and self.vwap[0] < self.data.close[0] < self.supertrend[0]:
+        if (
+            self.macd.macd[0] > self.macd.signal[0]
+            and self.vwap[0] < self.data.close[0] < self.supertrend[0]
+        ):
             self.buy_signal = True
             self.sell_signal = False
-        elif self.macd.macd[0] < self.macd.signal[0] and self.vwap[0] > self.data.close[0] > self.supertrend[0]:
+        elif (
+            self.macd.macd[0] < self.macd.signal[0]
+            and self.vwap[0] > self.data.close[0] > self.supertrend[0]
+        ):
             self.buy_signal = False
             self.sell_signal = True
 
@@ -34,5 +40,8 @@ class BrahmastraStrategy(bt.Strategy):
             self.sell()
 
         if self.position:  # If in position, check for stop loss/take profit
-            if self.data.close[0] <= self.stop_loss or self.data.close[0] >= self.take_profit:
+            if (
+                self.data.close[0] <= self.stop_loss
+                or self.data.close[0] >= self.take_profit
+            ):
                 self.close()

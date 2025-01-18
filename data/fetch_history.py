@@ -1,4 +1,3 @@
-import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 from pprint import pprint
@@ -21,14 +20,11 @@ def cleanup_data(data):
     # Check for missing values
     print(data.isnull().sum())
 
-    # Clean data (if required)
-    data_cleaned = data[['Close', 'Open', 'High', 'Low', 'Volume']]
-
     # Ensure 'Date' is the index
     data.index = pd.to_datetime(data.index)
 
     # Select only required columns and rename them for Backtrader
-    backtest_data = data[['Open', 'High', 'Low', 'Close', 'Volume']].copy()
+    backtest_data = data[["Open", "High", "Low", "Close", "Volume"]].copy()
 
     # Preview the final data
     print(backtest_data.head())
@@ -39,7 +35,7 @@ def cleanup_data(data):
 def plot_data(data, symbol):
     # Plot the closing prices
     plt.figure(figsize=(12, 6))
-    plt.plot(data['Close'], label=f"{symbol} Closing Price")
+    plt.plot(data["Close"], label=f"{symbol} Closing Price")
     plt.title(f"{symbol} Closing Price")
     plt.xlabel("Date")
     plt.ylabel("Price")

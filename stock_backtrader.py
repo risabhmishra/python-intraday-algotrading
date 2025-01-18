@@ -13,13 +13,13 @@ backtest_data = fetch_history.cleanup_data(history)
 # Define a custom data feed for Backtrader
 class PandasData(bt.feeds.PandasData):
     params = (
-        ('datetime', None),
-        ('open', 'Open'),
-        ('high', 'High'),
-        ('low', 'Low'),
-        ('close', 'Close'),
-        ('volume', 'Volume'),
-        ('openinterest', -1),
+        ("datetime", None),
+        ("open", "Open"),
+        ("high", "High"),
+        ("low", "Low"),
+        ("close", "Close"),
+        ("volume", "Volume"),
+        ("openinterest", -1),
     )
 
 
